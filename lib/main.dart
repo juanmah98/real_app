@@ -47,12 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txMonto) {
+  void _addNewTransaction(String txTitle, double txMonto, DateTime txDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
         monto: txMonto,
-        date: DateTime.now());
+        date: txDate);
 
     setState(() {
       _userTransactions.add(newTx);
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gastos personales'),
+        title: Text('Gastos semanales'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
